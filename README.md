@@ -27,12 +27,8 @@ and source it on login. Currently, the only "system" is sens, i.e. .bashrc_ubces
 *   Put the .bashrc_ubceslab_modules in your home directory
 and source it on login, *after* the .bashrc_ubceslab_system_init file.
 *   Run build scripts for "core" level apps
-  *   build_gcc_deps.sh, build_gcc_version.sh
-  *   build_git_version.sh
+  *   build_gcc_deps.sh, build_gcc.sh
   *   build_paraview_version.sh
-  *   build_emacs_version.sh
-  *   build_valgrind_version.sh
-  *   build_gdb_version.sh
   *   build_autotools_version.sh
   *   build_doxygen_version.sh
   *   build_anaconda.sh
@@ -45,7 +41,6 @@ and source it on login, *after* the .bashrc_ubceslab_system_init file.
       those packages. Note I expect that each user will manage their own Anaconda install after this,
       but this should be enough for you to use matplotlib for data that we generate.
   *   build_texlive_version.sh
-  *   build_cmake_version.sh
   *   ...
 * Load the compiler, e.g.: module load gcc
 * Run build scripts for "compiler" level apps
