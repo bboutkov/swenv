@@ -1,12 +1,14 @@
-#!/bin/sh                                                                                                                                                                                                                                    
+#!/bin/sh
+
 set -e
 
 echo "Building all GCC for ${UBCESLAB_SYSTEMTYPE:?undefined}"
 
-GCC_VERSION=$1
-GMP_VERSION=$2
-MPFR_VERSION=$3
-MPC_VERSION=$4
+GMP_VERSION=6.1.2
+MPFR_VERSION=4.0.2
+MPC_VERSION=1.1.0
+
+GCC_VERSION=9.2.0
 
 CURRENT_DIR=$PWD
 
@@ -42,7 +44,7 @@ fi
 
 if [ ! -d $MPC_DIR ]; then
   echo "Missing MPC install!"
-  echo $MPC_DIR 
+  echo $MPC_DIR
   exit
 fi
 
@@ -73,7 +75,7 @@ $UBCESLAB_SWENV_PREFIX/sourcesdir/gcc/gcc-$GCC_VERSION-src/configure \
 --with-mpc=$MPC_DIR \
 --disable-multilib \
 --enable-languages=$enablelangs \
---enable-lto 
+--enable-lto
 
 make -j ${NPROC:-1}
 
@@ -91,7 +93,7 @@ mkdir -p $MODULEDIR
 # Build up gcc module
 echo "local version = \"$GCC_VERSION\"" > $MODULEDIR/$GCC_VERSION.lua
 echo "local gmp_version = \"$GMP_VERSION\"" >> $MODULEDIR/$GCC_VERSION.lua
-echo "local mpfr_version = \"$MPFR_VERSION\"" >> $MODULEDIR/$GCC_VERSION.lua                                                                                                                                                         
+echo "local mpfr_version = \"$MPFR_VERSION\"" >> $MODULEDIR/$GCC_VERSION.lua
 echo "local mpc_version = \"$MPC_VERSION\"" >> $MODULEDIR/$GCC_VERSION.lua
 echo "local apps_dir = \"$UBCESLAB_SWENV_PREFIX/apps\"" >> $MODULEDIR/$GCC_VERSION.lua
 echo "local libs_dir = \"$UBCESLAB_SWENV_PREFIX/libs\"" >> $MODULEDIR/$GCC_VERSION.lua
