@@ -1,7 +1,7 @@
-#!/bin/sh                                                                                                                                                                                                                                    
+#!/bin/sh
 set -e # Fail on first error
 
-export GLPK_VERSION=$1
+export GLPK_VERSION=4.65
 
 CURRENT_DIR=$PWD
 
@@ -9,7 +9,7 @@ mkdir -p ${UBCESLAB_SWENV_PREFIX:?undefined}/sourcesdir/glpk
 
 (cd $UBCESLAB_SWENV_PREFIX/sourcesdir/glpk
 if [ ! -f glpk-$GLPK_VERSION.tar.gz ]; then
-  wget http://ftp.gnu.org/gnu/glpk/glpk-$GLPK_VERSION.tar.gz 
+  wget http://ftp.gnu.org/gnu/glpk/glpk-$GLPK_VERSION.tar.gz
 fi
 )
 

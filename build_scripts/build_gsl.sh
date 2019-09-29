@@ -1,7 +1,7 @@
-#!/bin/sh                                                                                                                                                                                                                                    
+#!/bin/sh
 set -e # Fail on first error
 
-export GSL_VERSION=$1
+export GSL_VERSION=2.6
 
 CURRENT_DIR=$PWD
 
@@ -9,7 +9,7 @@ mkdir -p ${UBCESLAB_SWENV_PREFIX:?undefined}/sourcesdir/gsl
 
 (cd $UBCESLAB_SWENV_PREFIX/sourcesdir/gsl
 if [ ! -f gsl-$GSL_VERSION.tar.gz ]; then
-  wget ftp://ftp.gnu.org/gnu/gsl/gsl-$GSL_VERSION.tar.gz 
+  wget ftp://ftp.gnu.org/gnu/gsl/gsl-$GSL_VERSION.tar.gz
 fi
 )
 

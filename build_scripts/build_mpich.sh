@@ -1,7 +1,7 @@
-#!/bin/sh                                                                                                                                                                                                                                    
+#!/bin/sh
 set -e # Fail on first error
 
-export MPICH_VERSION=$1
+export MPICH_VERSION=3.3.1
 
 CURRENT_DIR=$PWD
 
@@ -9,7 +9,7 @@ mkdir -p ${UBCESLAB_SWENV_PREFIX:?undefined}/sourcesdir/mpich
 
 (cd $UBCESLAB_SWENV_PREFIX/sourcesdir/mpich
 if [ ! -f mpich-$MPICH_VERSION.tar.gz  ]; then
-  wget http://www.mpich.org/static/downloads/$MPICH_VERSION/mpich-$MPICH_VERSION.tar.gz 
+  wget http://www.mpich.org/static/downloads/$MPICH_VERSION/mpich-$MPICH_VERSION.tar.gz
 fi
 )
 

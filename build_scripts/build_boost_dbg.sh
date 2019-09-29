@@ -1,7 +1,7 @@
-#!/bin/sh                                                                                                                                                                                                                                    
+#!/bin/sh
 set -e # Fail on first error
 
-export BOOST_VERSION=$1
+export BOOST_VERSION=1.71.0
 
 export BOOST_MAJOR=`echo $BOOST_VERSION | cut -d . -f 1`
 export BOOST_MINOR=`echo $BOOST_VERSION | cut -d . -f 2`
@@ -15,7 +15,7 @@ mkdir -p ${UBCESLAB_SWENV_PREFIX:?undefined}/sourcesdir/boost
 
 (cd $UBCESLAB_SWENV_PREFIX/sourcesdir/boost
 if [ ! -f boost_$BOOST_FILENAME.tar.bz2 ]; then
-  wget --output-document=boost_$BOOST_FILENAME.tar.bz2 http://sourceforge.net/projects/boost/files/boost/$BOOST_VERSION/boost_$BOOST_FILENAME.tar.bz2/download 
+  wget --output-document=boost_$BOOST_FILENAME.tar.bz2 https://dl.bintray.com/boostorg/release/$BOOST_VERSION/source/boost_$BOOST_FILENAME.tar.bz2
 fi
 )
 
@@ -33,11 +33,11 @@ if test "$COMPILER" = intel; then
   TOOLSET=intel-linux
 fi
 
-./bootstrap.sh --with-toolset=${TOOLSET} --prefix=$BOOST_DIR --with-libraries=program_options,system,filesystem,chrono,regex,signals,serialization,date_time,thread
+./bootstrap.sh --with-toolset=${TOOLSET} --prefix=$BOOST_DIR --with-libraries=program_options,system,filesystem,chrono,regex,serialization,date_time,thread
 
 rm -rf $BOOST_DIR
 
-./bjam -j ${NPROC:-1} cxxflags="-D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC" install
+./b2 -j ${NPROC:-1} cxxflags="-D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC" install
 
 cd $UBCESLAB_SWENV_PREFIX
 rm -rf $BUILDDIR || true

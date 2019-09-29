@@ -1,7 +1,7 @@
-#!/bin/sh                                                                                                                                                                                                                                    
+#!/bin/sh
 set -e # Fail on first error
 
-export OPENBLAS_VERSION=$1
+export OPENBLAS_VERSION=0.3.7
 
 CURRENT_DIR=$PWD
 
@@ -9,7 +9,7 @@ mkdir -p ${UBCESLAB_SWENV_PREFIX:?undefined}/sourcesdir/openblas
 
 (cd $UBCESLAB_SWENV_PREFIX/sourcesdir/openblas
 if [ ! -f v$OPENBLAS_VERSION.tar.gz  ]; then
-  wget https://github.com/xianyi/OpenBLAS/archive/v$OPENBLAS_VERSION.tar.gz 
+  wget https://github.com/xianyi/OpenBLAS/archive/v$OPENBLAS_VERSION.tar.gz
 fi
 )
 
