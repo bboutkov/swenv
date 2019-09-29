@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e # Fail on first error
 
-export VTK_VERSION=$1
+export VTK_VERSION=8.2.0
 
 export VTK_MAJOR=`echo $VTK_VERSION | cut -d . -f 1`
 export VTK_MINOR=`echo $VTK_VERSION | cut -d . -f 2`

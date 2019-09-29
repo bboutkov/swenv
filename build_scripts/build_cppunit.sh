@@ -1,7 +1,7 @@
-#!/bin/sh                                                                                                                                                                                                                                    
+#!/bin/sh
 set -e # Fail on first error
 
-export CPPUNIT_VERSION=$1
+export CPPUNIT_VERSION=1.14.0
 
 CURRENT_DIR=$PWD
 
@@ -9,7 +9,7 @@ mkdir -p ${UBCESLAB_SWENV_PREFIX:?undefined}/sourcesdir/cppunit
 
 (cd $UBCESLAB_SWENV_PREFIX/sourcesdir/cppunit
 if [ ! -f cppunit-$CPPUNIT_VERSION.tar.gz ]; then
-  wget http://dev-www.libreoffice.org/src/cppunit-$CPPUNIT_VERSION.tar.gz 
+  wget http://dev-www.libreoffice.org/src/cppunit-$CPPUNIT_VERSION.tar.gz
 fi
 )
 

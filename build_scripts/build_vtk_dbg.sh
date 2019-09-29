@@ -1,7 +1,7 @@
-#!/bin/sh                                                                                                                                                                                                                                    
+#!/bin/sh
 set -e # Fail on first error
 
-export VTK_VERSION=$1
+export VTK_VERSION=8.2.0
 
 export VTK_MAJOR=`echo $VTK_VERSION | cut -d . -f 1`
 export VTK_MINOR=`echo $VTK_VERSION | cut -d . -f 2`
@@ -13,7 +13,7 @@ mkdir -p ${UBCESLAB_SWENV_PREFIX:?undefined}/sourcesdir/vtk
 
 (cd $UBCESLAB_SWENV_PREFIX/sourcesdir/vtk
 if [ ! -f v$VTK_VERSION.tar.gz  ]; then
-  wget https://github.com/Kitware/VTK/archive/v$VTK_VERSION.tar.gz 
+  wget https://github.com/Kitware/VTK/archive/v$VTK_VERSION.tar.gz
 fi
 )
 

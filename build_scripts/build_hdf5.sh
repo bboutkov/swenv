@@ -1,7 +1,7 @@
-#!/bin/sh                                                                                                                                                                                                                                    
+#!/bin/sh
 set -e # Fail on first error
 
-export HDF5_VERSION=$1
+export HDF5_VERSION=1.10.5
 
 CURRENT_DIR=$PWD
 
@@ -9,7 +9,7 @@ mkdir -p ${UBCESLAB_SWENV_PREFIX:?undefined}/sourcesdir/hdf5
 
 (cd $UBCESLAB_SWENV_PREFIX/sourcesdir/hdf5
 if [ ! -f hdf5-$HDF5_VERSION.tar.bz2  ]; then
-  wget http://www.hdfgroup.org/ftp/HDF5/current/src/hdf5-$HDF5_VERSION.tar.bz2 
+  wget http://www.hdfgroup.org/ftp/HDF5/current/src/hdf5-$HDF5_VERSION.tar.bz2
 fi
 )
 
