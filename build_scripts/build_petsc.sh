@@ -2,7 +2,7 @@
 
 set -e # Fail on first error
 
-export PETSC_VERSION=3.12.0
+export PETSC_VERSION=3.12.4
 
 CURRENT_DIR=$PWD
 
