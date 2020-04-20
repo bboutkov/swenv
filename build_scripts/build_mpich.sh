@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e # Fail on first error
 
-export MPICH_VERSION=3.3.1
+export MPICH_VERSION=3.3.2
 
 CURRENT_DIR=$PWD
 
